@@ -21,7 +21,7 @@
         }
         $scope.disableNextFunc = function() {
             var path = $location.path();
-            if (path == '/message')
+            if (path == '/phone')
                 return true;
             else
                 return false;
@@ -41,9 +41,6 @@
             } else if (path == '/email') {
                 $scope.isSelected = 5;
                 $location.path('/phone')
-            } else if (path == '/phone') {
-                $scope.isSelected = 6;
-                $location.path('/message')
             }
         }
         $scope.prevPage = function() {
@@ -61,21 +58,12 @@
             } else if (path == '/phone') {
                 $scope.isSelected = 4;
                 $location.path('/email')
-            } else if (path == '/message') {
-                $scope.isSelected = 5;
-                $location.path('/email')
             }
         }
     }]);
 
     app.controller('TabController', function() {
-        this.selected = 1;
-        this.isSet = function(number) {
-            return this.selected === number ? true : false;
-        }
-        this.setTab = function(number) {
-            this.selected = number;
-        }
+
     });
 
     app.config(['$routeProvider', function($routeProvider) {
@@ -94,15 +82,11 @@
             })
             .when('/email', {
                 templateUrl: './views/email.html',
-                //controller: 'EmailController'
+                controller: 'EmailController'
             })
             .when('/phone', {
                 templateUrl: './views/phone.html',
-                //controller: 'PhoneController'
-            })
-            .when('/message', {
-                templateUrl: './views/message.html',
-                // controller: 'MessageController'
+                controller: 'PhoneController'
             })
             .otherwise('/');;
     }]);

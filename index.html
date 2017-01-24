@@ -37,23 +37,13 @@
                     <i style="font-size: 36px;" class="material-icons">mail_outline</i>
                     <p style="margin-left: 14px;">Email address change</p>
                 </md-list-item>
-                <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/email" ng-click="tab.setTab(4)" ng-class="{'selectedItem': isSelected == 4}">
-                        <md-icon><i class="material-icons md-18">email</i> </md-icon>
-                        <span class="menu-name" flex>Email</span>
-                    </md-button>
+                <md-list-item ng-class="{'selectedItem': isSelected == 4}" ng-href="#/email" ng-click="setSelected(4)" style="padding:0px; display: flex; justify-content: start; align-items: center;" layout="row">
+                    <i style="font-size: 36px;" class="material-icons">contacts</i>
+                    <p style="margin-left: 14px;">Contact</p>
                 </md-list-item>
-                <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/phone" ng-click="tab.setTab(5)" ng-class="{'selectedItem': isSelected == 5}">
-                        <md-icon><i class="material-icons md-18">phone</i> </md-icon>
-                        <span class="menu-name" flex>Phone</span>
-                    </md-button>
-                </md-list-item>
-                <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/messages" ng-click="tab.setTab(6)" ng-class="{'selectedItem': isSelected == 6}">
-                        <md-icon><i class="material-icons md-18">messages</i> </md-icon>
-                        <span class="menu-name" flex>Messages</span>
-                    </md-button>
+                <md-list-item ng-class="{'selectedItem': isSelected == 5}" ng-href="#/phone" ng-click="setSelected(5)" style="padding:0px; display: flex; justify-content: start; align-items: center;" layout="row">
+                    <i style="font-size: 36px;" class="material-icons">phone</i>
+                    <p style="margin-left: 14px;">Phone</p>
                 </md-list-item>
             </md-list>
         </md-sidenav>
@@ -68,9 +58,7 @@
                 <ng-view></ng-view>
             </md-content>
         </div>
-
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-aria/angular-aria.min.js"></script>
@@ -80,18 +68,8 @@
     <script src="js/controllers/AndroidController.js"></script>
     <script src="js/controllers/AccountController.js"></script>
     <script src="js/controllers/DeleteController.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#item0").click(function() {
-                $(".selected").removeClass("selected");
-                $(this), addClass("selected");
-            });
-            $("#item2").click(function() {
-                $(".selected").removeClass(".selected");
-                $(this).addClass("selected");
-            });
-        });
-    </script>
+    <script src="js/controllers/EmailController.js"></script>
+    <script src="js/controllers/PhoneController.js"></script>
 </body>
 
 </html>
