@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     margin: 0;
@@ -45,4 +46,13 @@ md-list-item {
 
 md-list-item:before {
     min-height: 0;
+}
+
+md-list>md-list-item:hover {
+    background-color: #F5F5F5;
+}
+
+.selectedItem {
+    background-color: #039BE5;
+    color: white;
 }

@@ -20,48 +20,37 @@
 
     <div layout="row" flex class="content-wrapper">
 
-        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-            <md-toolbar style="display: flex; justify-content: center; align-items: center; background-color:#dfe2e3;height: 56px;">
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" style="background-color: #F5F5F5;">
 
-            </md-toolbar>
-            <div layout="row" style="margin: 10px 0px 10px 0px;">
-                <button ng-disabled="disablePrevFunc()" ng-click="prevPage()">Prev</button>
-                <span flex></span>
-                <button ng-disabled="disableNextFunc()" ng-click="nextPage()">Next</button>
-            </div>
+            <p style="padding: 24px 24px 0px 24px; margin-bottom: 10px;" class="md-title">Email Types</p>
             <md-list class="tabs" ng-controller="TabController as tab">
-                <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/" ng-click="tab.setTab(1)" ng-class="{'selected': isSelected == 1}">
-                        <md-icon><i class="material-icons md-18">android</i></md-icon>
-                        <span class="menu-name" flex>Android</span>
-                    </md-button>
+
+                <md-list-item ng-class="{'selectedItem': isSelected == 1}" ng-href="#/" ng-click="setSelected(1)" style="padding:0px; display: flex; justify-content: start; align-items: center;" layout="row">
+                    <i style="font-size: 36px;" class="material-icons md-36">mail_outline</i>
+                    <div style="margin-left: 14px;">Email address verification</div>
+                </md-list-item>
+                <md-list-item ng-class="{'selectedItem': isSelected == 2}" ng-href="#/account" ng-click="setSelected(2)" style="padding:0px; display: flex; justify-content: start; align-items: center;" layout="row">
+                    <i style="font-size: 36px;" class="material-icons">mail_outline</i>
+                    <p style="margin-left: 14px;">Password reset</p>
+                </md-list-item>
+                <md-list-item ng-class="{'selectedItem': isSelected == 3}" ng-href="#/delete" ng-click="setSelected(3)" style="padding:0px; display: flex; justify-content: start; align-items: center;" layout="row">
+                    <i style="font-size: 36px;" class="material-icons">mail_outline</i>
+                    <p style="margin-left: 14px;">Email address change</p>
                 </md-list-item>
                 <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/account" ng-click="tab.setTab(2)" ng-class="{'selected': isSelected == 2}">
-                        <md-icon><i class="material-icons md-18">account_circle</i> </md-icon>
-                        <span class="menu-name" flex>Account</span>
-                    </md-button>
-                </md-list-item>
-                <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/delete" ng-click="tab.setTab(3)" ng-class="{'selected': isSelected == 3}">
-                        <md-icon><i class="material-icons md-18">delete</i> </md-icon>
-                        <span class="menu-name" flex>Delete</span>
-                    </md-button>
-                </md-list-item>
-                <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/email" ng-click="tab.setTab(4)" ng-class="{'selected': isSelected == 4}">
+                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/email" ng-click="tab.setTab(4)" ng-class="{'selectedItem': isSelected == 4}">
                         <md-icon><i class="material-icons md-18">email</i> </md-icon>
                         <span class="menu-name" flex>Email</span>
                     </md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/phone" ng-click="tab.setTab(5)" ng-class="{'selected': isSelected == 5}">
+                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/phone" ng-click="tab.setTab(5)" ng-class="{'selectedItem': isSelected == 5}">
                         <md-icon><i class="material-icons md-18">phone</i> </md-icon>
                         <span class="menu-name" flex>Phone</span>
                     </md-button>
                 </md-list-item>
                 <md-list-item>
-                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/messages" ng-click="tab.setTab(6)" ng-class="{'selected': isSelected == 6}">
+                    <md-button class="tab-button" layout="row" layout-align="start center" href="#/messages" ng-click="tab.setTab(6)" ng-class="{'selectedItem': isSelected == 6}">
                         <md-icon><i class="material-icons md-18">messages</i> </md-icon>
                         <span class="menu-name" flex>Messages</span>
                     </md-button>
@@ -70,19 +59,18 @@
         </md-sidenav>
 
         <div layout="column" flex class="content-wrapper" id="primary-col">
-            <div style="display: flex; height: 56px; margin: 0px;padding: 8px 16px 0px 16px;; background-color: #039BE5;" layout="row">
-                <p flex="grow" style=" display: flex;align-items: center; font-size: 20px; line-height: 24px; color: white; margin-bottom: 8px;margin-top: 8px;">Authentication</p>
-                <md-button style="color: white;">WEB SETUP</md-button>
-                <md-button style="color: white;" class="md-icon"><i class="material-icons">help</i></md-button-icon>
+            <div layout="row" style="margin: 10px 0px 10px 0px;">
+                <md-button ng-disabled="disablePrevFunc()" ng-click="prevPage()" class="md-raised">Prev</md-button>
+                <span flex></span>
+                <md-button ng-disabled="disableNextFunc()" ng-click="nextPage()" class="md-raised">Next</md-button>
             </div>
-
-            <md-content layout="column" flex class="md-padding">
+            <md-content layout="column" flex="grow" class="md-padding">
                 <ng-view></ng-view>
             </md-content>
         </div>
 
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-aria/angular-aria.min.js"></script>
@@ -92,6 +80,18 @@
     <script src="js/controllers/AndroidController.js"></script>
     <script src="js/controllers/AccountController.js"></script>
     <script src="js/controllers/DeleteController.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#item0").click(function() {
+                $(".selected").removeClass("selected");
+                $(this), addClass("selected");
+            });
+            $("#item2").click(function() {
+                $(".selected").removeClass(".selected");
+                $(this).addClass("selected");
+            });
+        });
+    </script>
 </body>
 
 </html>

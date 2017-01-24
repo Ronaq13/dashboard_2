@@ -9,6 +9,9 @@
         }
 
         $scope.isSelected = 1;
+        $scope.setSelected = function(itemNumber) {
+            $scope.isSelected = itemNumber;
+        }
         $scope.disablePrevFunc = function() {
             var path = $location.path();
             if (path == '/') {
